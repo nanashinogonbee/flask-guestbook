@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<form action="/" method="post" class="form-contact">
+<label>Имя пользователя: </label> <input type="text" name="username" value="" requied />
+<label>Пароль: </label> <input type="password" name="psw" value="" requied />
+<input type="checkbox" name="remainme" /> Запомнить меня
+<input type="submit" value="Войти" />
+<hr align=left width="300px">
+<a href="{{url_for('register')}}">Регистрация</a>
+</form>
+</body>
+</html>
